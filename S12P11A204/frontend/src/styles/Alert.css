@@ -1,0 +1,52 @@
+.alert-section {
+  position: absolute;
+  top: 60px;
+  right: 60px;  /* 오른쪽 여백 늘려서 왼쪽으로 이동 */
+  background-color: #2E303480;
+  border-radius: 8px;
+  border: 1px solid #E7E8E320;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  width: auto;  /* 고정된 작은 너비 설정 */
+  color: #E7E8E3;
+  min-width: 300px; /* 최소 너비 설정 */
+  max-width: 600px; /* 최대 너비 설정 */
+}
+
+.alert-container h5 {
+  font-weight: 500;
+  margin-left: 6px;
+}
+
+.alert-container {
+  width: 100%;  /* 부모 너비에 맞춤 */
+  max-width: none;  /* 최대 너비 제한 */
+}
+
+.alert-box {
+  padding: 12px;  /* 패딩 줄임 */
+}
+
+.alert-list {
+  max-height: 200px;  /* 최대 높이 제한 */
+  overflow-y: auto;
+}
+
+.alert-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #E7E8E320;
+}
+
+.alert-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 15px 4px;
+  font-size: 13px;  /* 글자 크기 줄임 */
+}
+
+.alert-content strong {
+  color: #E7E8E3;
+  margin-right: 8px;
+  font-weight: 500;
+}

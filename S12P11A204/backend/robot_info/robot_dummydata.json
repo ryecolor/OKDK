@@ -1,0 +1,53 @@
+[
+    {
+      "model": "robot_info.Robot",
+      "pk": 1,
+      "fields": {
+        "district": 1,
+        "selected_drain": "",
+        "is_robot_available": true,
+        "robot_unavailable_reason": ""
+      }
+    },
+    {
+      "model": "robot_info.Robot",
+      "pk": 2,
+      "fields": {
+        "district": 2,
+        "selected_drain": "",
+        "is_robot_available": false,
+        "robot_unavailable_reason": "정기 점검 중"
+      }
+    },
+    {
+      "model": "robot_info.Robot",
+      "pk": 3,
+      "fields": {
+        "district": 3,
+        "selected_drain": "",
+        "is_robot_available": true,
+        "robot_unavailable_reason": ""
+      }
+    },
+    {
+      "model": "robot_info.Robot",
+      "pk": 4,
+      "fields": {
+        "district": 4,
+        "selected_drain": "",
+        "is_robot_available": true,
+        "robot_unavailable_reason": ""
+      }
+    },
+    {
+      "model": "robot_info.Robot",
+      "pk": 5,
+      "fields": {
+        "district": 5,
+        "selected_drain": "Industrial Zone Drain",
+        "is_robot_available": false,
+        "robot_unavailable_reason": "배터리 교체 필요"
+      }
+    }
+  ]
+  

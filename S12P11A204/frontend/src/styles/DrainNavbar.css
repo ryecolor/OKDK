@@ -1,0 +1,374 @@
+.drain-nav-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.drain-tabs {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2px;
+  padding: 0 20px;
+  background-color: transparent;
+  position: relative;
+}
+
+.tab-item {
+  min-width: 100px;
+  max-width: 140px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  background-color: #6666669e;
+  color: #ffffff8d;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 13px;
+  height: 40px;
+}
+
+.tab-item:first-child {
+  color: #DFE27C;
+}
+
+.tab-item.active {
+  background-color: #404040;
+  transform: translateY(-9px);
+  color: white;
+  font-size: 15px;
+}
+
+.tab-item.active:first-child {
+  color: #DFE27C;
+}
+
+.drain-container {
+  flex: 1;
+  background-color: #404040;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+  position: relative;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #666 #333;
+}
+
+.drain-info {
+  color: white;
+  text-align: center;
+  background-color: #404040;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.info-content {
+  display: flex;
+  gap: 20px;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+.image-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 45%; /* 기본적으로 가로 배치 */
+}
+
+.image-section h3 {
+  margin: 10px 0;
+  text-align: start;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+}
+
+.image-section,
+.table-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #333; /* 배경색 추가 */
+  border-radius: 8px; /* 둥근 모서리 */
+  padding: 5px 20px 0 20px;
+  height: 255px;
+}
+
+.image-section h3,
+.table-section h3 {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.status-image {
+  width: 100%;
+  height: auto;
+  max-height: 190px;
+  object-fit: contain; /* 이미지 비율 유지 */
+}
+
+.table-section {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  max-width: 55%;
+}
+
+.table-section h3 {
+  margin: 10px 0;
+  text-align: start;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+}
+
+.table-section th {
+  font-size: 12px;
+}
+
+.table-section td {
+  font-size: 14px;
+}
+
+.table-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #666 #333;
+  max-height: clac(100% - 40px);
+  border-radius: 4px;
+  background-color: #333;
+  scrollbar-width: thin;
+  scrollbar-color: #666 #333;
+  max-height: 189px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  background-color: #404040;
+  z-index: 1000;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 12px;
+  background-color: #404040;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #555;
+}
+
+.block-condition td {
+  padding: 8px !important;
+}
+
+.block-condition td:last-child {
+  width: 30%;
+}
+
+.condition-table td {
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #555;
+}
+
+.condition-table td:last-child {
+  /* width: 30%; */
+  cursor: pointer; /* 버튼처럼 클릭 가능 */
+  transition: all 0.3s ease; /* 부드러운 전환 효과 */
+  border-radius: 4px;
+}
+
+.condition-table td:last-child:hover {
+  background-color: #555; /* 호버 시 배경색 변경 */
+  color: white; /* 텍스트 색상 변경 */
+}
+
+.condition-table tr:hover {
+  background-color: #4a4a4a;
+}
+
+.condition-table tr:first-child {
+  background-color: #DFE27C20;
+}
+
+.condition-table tr.latest-row {
+  border: 2px solid #DFE27C70;
+}
+
+.condition-table td:last-child {
+  padding: 0; /* 셀 내부 여백 제거 */
+}
+
+.custom-dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 7px 10px 7px;
+  font-weight: medium;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.02);
+}
+
+.dropdown-toggle:active {
+  transform: scale(0.98);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  width: 100%;
+  /* padding: 5px 0;
+  margin: 2px 0 0; */
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-color: #404040;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+}
+
+.dropdown-arrow {
+  font-size: 1.2em;
+  margin-left: 10px;
+}
+
+.custom-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 5px 10px;
+  clear: both;
+  font-weight: 400;
+  font-size: smaller;
+  text-align: center;
+  line-height: 1.42857143;
+  white-space: nowrap;
+  color: #ffffff;
+}
+
+.dropdown-item:hover {
+  background-color: #61636720;
+}
+
+.condition-excellent {
+  background-color: #0ab69f30;
+  border: 1px solid #0ab69f60;
+  color: white;
+}
+
+.condition-good {
+  background-color: #fec16530;
+  border: 1px solid #fec16560;
+  color: white;
+}
+
+.condition-danger {
+  background-color: #eb556930;
+  border: 1px solid #eb556960;
+  color: white;
+}
+
+/* 좌측 하단 MapBox 로고 숨김 */
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+@media (max-width: 1090px) {
+
+  .tab-item {
+    min-width: 80px;
+    max-width: 110px;
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+
+  .tab-item.active {
+    font-size: 13px;
+  }
+
+  .info-content {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center; /* 가운데 정렬 */
+    justify-content: center;
+    height: auto; /* 높이 자동 조정 */
+    padding-bottom: 20px;
+  }
+
+  .image-section, .table-section {
+    max-width: none; /* 너비 제한 해제 */
+    width: 100%; /* 전체 너비 사용 */
+    text-align: center; /* 중앙 정렬 */
+    box-shadow: none; /* 그림자 제거 (모바일에서 깔끔하게 보이도록) */
+    border-radius: 8px; /* 둥근 모서리 유지 */
+    background-color: #404040; /* 동일한 배경색 유지 */
+    /* overflow-x: hidden; 가로 스크롤 방지 */
+  }
+
+  .table-section {
+    height: 600px;
+    padding-bottom: 10px;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-height: none;
+  }
+
+  th, td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .condition-table select {
+    font-size: 13px;
+    width: 70px;
+  }
+
+  .status-image {
+    max-height: none; /* 높이 제한 해제 */
+    height: auto;
+    max-width: 280px;
+    margin-bottom: 20px; /* 이미지 아래 간격 추가 */
+    object-fit: contain;
+    border-radius: inherit; /* 부모와 동일한 둥근 모서리 적용 */
+    box-shadow: none; /* 그림자 제거 (모바일 최적화) */
+    background-color: transparent;
+  }
+}

@@ -1,0 +1,89 @@
+.info-container {
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/genesisman.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* 좌측 패널 박스에 검정색 그림자 효과 추가 */
+}
+
+.info-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+  padding: 100px 10% 100px 0;
+}
+
+.info-title {
+  font-size: 4rem;
+  color: white;
+  font-weight: 500;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.7);
+  font-family: 'Nanum Myeongjo', serif; /* 나눔명조 폰트 적용 */
+  animation: shadowPulse 3s ease-in-out infinite;
+}
+
+@keyframes shadowPulse {
+  0% {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  50% {
+      text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.9);
+  }
+  100% {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+}
+
+.sub-title {
+  font-size: 1.6rem;
+  color: #ffffff60;
+  font-family: 'Nanum Myeongjo', serif; /* 나눔명조 폰트 적용 */
+  font-style: italic;
+  font-weight: 400;
+}
+
+.info-text-sub {
+  display: block;
+  text-align: right;
+  margin-left: 100px;
+  line-height: 1.8;
+  font-size: 1rem;
+  color: #ffffff80;
+}
+
+.info-text-main {
+  text-align: right;
+  margin-top: auto;
+  animation: fadeIn 2s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.info-text-kr {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 10px;
+}

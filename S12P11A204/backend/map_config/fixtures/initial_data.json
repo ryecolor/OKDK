@@ -1,0 +1,71 @@
+[
+  {
+    "model": "map_config.mapconfig",
+    "pk": 1,
+    "fields": {
+      "access_token": "pk.eyJ1Ijoic2hhcm14MWFtIiwiYSI6ImNtNjVzeXExYTBzNjMycnF2ZWw5eG4yZGgifQ.yWwzK20xQIi0JPRXoUyW-Q",
+      "center_lat": 37.4979,
+      "center_lng": 127.0286,
+      "zoom": 16.0,
+      "min_zoom": 10.0,
+      "max_zoom": 18.0,
+      "pitch": 45.0,
+      "bearing": -17.6,
+      "flood_layer_url": "https://www.safemap.go.kr/openApiService/wms/getLayerData.do?apikey=3KTOKO6N-3KTO-3KTO-3KTO-3KTOKO6N9R&LAYERS=A2SM_FLUDMARKS&STYLES=A2SM_FludMarks&FORMAT=image/png&TRANSPARENT=true&VERSION=1.3.0&SERVICE=WMS&REQUEST=GetMap&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256"
+    }
+  },
+  {
+    "model": "map_config.legenditem",
+    "pk": 1,
+    "fields": {
+      "color": "#7F7FFF",
+      "name": "6등급",
+      "range": "3.0m 이상"
+    }
+  },
+  {
+    "model": "map_config.legenditem",
+    "pk": 2,
+    "fields": {
+      "color": "#7FC8FF",
+      "name": "5등급",
+      "range": "2.0m～3.0m 미만"
+    }
+  },
+  {
+    "model": "map_config.legenditem",
+    "pk": 3,
+    "fields": {
+      "color": "#7FC8C8",
+      "name": "4등급",
+      "range": "1.5m～2.0m 미만"
+    }
+  },
+  {
+    "model": "map_config.legenditem",
+    "pk": 4,
+    "fields": {
+      "color": "#7FFFBF",
+      "name": "3등급",
+      "range": "1.0m～1.5m 미만"
+    }
+  },
+  {
+    "model": "map_config.legenditem",
+    "pk": 5,
+    "fields": {
+      "color": "#DFFF7F",
+      "name": "2등급",
+      "range": "0.5m～1.0m 미만"
+    }
+  },
+  {
+    "model": "map_config.legenditem",
+    "pk": 6,
+    "fields": {
+      "color": "#FFFF7F",
+      "name": "1등급",
+      "range": "0.5m 미만"
+    }
+  }
+]

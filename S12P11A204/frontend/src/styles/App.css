@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
+body {
+  font-family: 'Times New Roman', sans-serif;
+}
+
+.layout-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.user-panel {
+  width: 350px;
+  height: 100vh;
+  padding: 20px;
+  background-color: #2E3034;
+  color: #E7E8E3;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  padding-top: 15px;
+}
+
+.user-box {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #373A41;
+  border-radius: 0;
+  box-shadow: 0px 0px 2px #A2B6B5;
+}
+
+.user-box .user-info {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding-left: 10px;
+}
+
+.greeting {
+  margin: 2px 0px 0px 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.greeting p {
+  margin: 0;
+  font-size: small;
+  line-height: 1.2;
+}
+
+.user-box .profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-box .button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin: 15px 0 0 0;
+}
+
+.user-box .button-group .primary-button,
+.user-box .button-group .secondary-button {
+  width: 40%;
+  height: 35px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.main-contents {
+  flex: 1;
+  position: relative;
+}
+
+.map-section {
+  height: 100%;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: small;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #E7E8E3;
+  border-radius: 4px;
+  font-family: 'Times New Roman', sans-serif;
+}
+
+.form-group input::placeholder {
+  color: #b0b0b0;
+}
+
+.primary-button, .secondary-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.primary-button {
+  background-color: #A2B6B5;
+  color: #2E3034;
+  margin-top: 20px;
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: #E7E8E3;
+  border: 1px solid #E7E8E3;
+}
+
+.primary-button:hover, .secondary-button:hover {
+  opacity: 0.9;
+  font-weight: 700;
+}
+
+.error-message {
+  color: #DFE27C;
+  margin-top: 10px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.warning-text {
+  color: #DFE27C;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.load-message {
+  color: #E7E8E3;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.main-text {
+  font-size: large;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.7);
+  font-family: 'Nanum Myeongjo', serif;
+  padding: 40px 0px 20px 0px;
+}
+
+.delete-confirm {
+  background-color: #A2B6B540;
+  padding: 30px;
+  border-radius: 15px;
+  margin-top: 30px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.delete-confirm .warning-text {
+  font-size: small;
+  text-align: center;
+}
+
+.delete-confirm .horizontal-button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.delete-confirm .horizontal-button {
+  flex: 1;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 4px;
+}
+
+.delete-confirm .primary-button.horizontal-button,
+.delete-confirm .secondary-button.horizontal-button {
+  margin: 0;
+  line-height: 40px;
+}
+
+  /* 아이콘 관련 */
+
+  .icons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+
+  .weather-icon:hover, .alert-icon:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+
+  .weather-icon img {
+    width: 30px;
+    height: 100%;
+    display: block;
+    padding: 0;
+  }
+
+  .alert-icon img {
+    width: 25px;
+    height: 100%;
+    display: block;
+    margin-left: 2.5px;
+    padding: 0;
+  }
+
+  /* 토스트 스타일 */
+
+  .custom-toast-container {
+    padding-top: 90px !important;
+    font-family: 'Times New Roman', sans-serif;
+    padding: 15px;
+  }
+  
+  .custom-toast {
+    background: #2E303480 !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #E7E8E3 !important;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    min-width: 300px;
+    font-size: 14px;
+    gap: 6px;
+  }
+  
+  .custom-toast .Toastify__progress-bar {
+    background: #E7E8E3;
+    height: 3px;
+  }
+  
+  .custom-toast .Toastify__close-button {
+    color: #E7E8E3;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+  }
+
+  .alert-icon span {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: #E7E8E3;
+    border-radius: 50%; /* 원형으로 만듦 */
+    width: 18px; /* 너비와 높이를 동일하게 설정 */
+    height: 18px; /* 높이 설정 */
+    display: flex; /* 플렉스 박스를 사용해 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    font-size: 12px; /* 텍스트 크기 */
+  }
+
+  .alert-list::-webkit-scrollbar {
+    width: 4px; /* 세로 스크롤 너비 */
+    height: 8px; /* 가로 스크롤 높이 */
+  }
+  
+  .alert-list::-webkit-scrollbar-track {
+    background: #2e303480; /* 트랙 배경 */
+    border-radius: 4px;
+  }
+  
+  .alert-list::-webkit-scrollbar-thumb {
+    background: #DFE27C; /* 썸(스크롤 핸들) 색상 */
+    border-radius: 4px;
+  }
+  
+  .alert-list::-webkit-scrollbar-thumb:hover {
+    background: #A2B6B5; /* 호버 시 색상 */
+  }
+  
+  /* 줄었을 때 */
+  @media (max-width: 768px) {
+    .user-panel {
+      width: 80px;
+      padding: 10px;
+      overflow: visible;
+    }
+    
+    .user-panel.collapsed {
+    width: 80px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .user-panel.collapsed .logo-container,
+  .user-panel.collapsed .user-box {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    gap: 10px;
+  }
+
+  .user-panel.collapsed .greeting {
+    display: none; /* 인삿말 텍스트 숨김 */
+  }
+
+  .user-panel.collapsed .user-box {
+    width: 80px; /* 왼쪽 패널바와 동일한 너비 */
+    height: auto;
+    min-height: 180px;
+    margin: 0; /* 마진 제거 */
+    padding: 0px; /* 패딩 제거 */
+    box-shadow: none; /* 그림자 제거 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .user-panel.collapsed .user-info {
+    padding: 0px;
+  }
+
+  .user-panel.collapsed .delete-confirm {
+    display: none; /* collapsed 상태에서 숨김 처리 */
+  }
+
+  .signout-message {
+    font-size: 8px;
+    color: #E7E8E3;
+    margin-top: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .user-panel.collapsed .profile-img {
+    width: 50px; /* 프로필 이미지 크기 조정 */
+    height: 50px;
+    margin: 0; /* 마진 제거 */
+  }
+
+  .user-panel.collapsed .button-group {
+    margin-top: 0;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .user-panel.collapsed .block-item {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #373A41;
+    margin: 5px 0;
+  }
+
+  .user-panel.collapsed .button-group .primary-button,
+  .user-panel.collapsed .button-group .secondary-button {
+    width: 60px;
+    height: 30px; /* 높이 조정 */
+    border-radius: 4px; /* 모서리 둥글기 설정 */
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  .user-panel .logo {
+    width: 50px;
+    height: auto;
+  }
+}

@@ -1,0 +1,294 @@
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #A2B6B5;
+  color: #E7E8E3;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.block-navbar {
+  display: flex;
+  flex-direction: column;
+  background-color: #2E3034;
+  padding: 10px;
+  height: 100%;
+  gap: 10px;
+  transition: width 0.3s ease;
+  margin-top: 10px;
+}
+
+.block-navbar.collapsed {
+  width: 80px;
+  overflow: hidden;
+}
+
+.block-item {
+  position: relative;
+  /* z-index: 1; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  min-height: 40px;
+  box-shadow: 0px 0px 2px #A2B6B5;
+  transition: all 0.3s ease;
+  font-size: 14px; /* 기본 텍스트 크기 */
+}
+
+.block-item:first-child {
+  background-color: #E7E8E3;
+  color: #2E3034;
+}
+
+.block-item:first-child:hover {
+  background-color: #E7E8E390;
+}
+
+.block-item:first-child.active {
+  background-color: #535f7c;
+  color: #ffffff;
+  box-shadow: 0px 0px 2px #8a909a;
+}
+
+.block-item:hover {
+  font-weight: 600;
+  background-color: #A2B6B530;
+  transform: translateY(-2px);
+  z-index: 5;
+}
+
+.block-item.activated {
+  background-color: #2E3034; /* 원래 배경색으로 변경 */
+  color: white;
+}
+
+/* .block-navbar button:nth-child(2) {
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+} */
+
+/* .block-navbar.collapsed .block-item:nth-child(2) {
+  height: 50px;
+} */
+
+.block-navbar.collapsed .block-item[data-block="1"],
+.block-navbar.collapsed button.block-item[data-block="1"] {
+  width: 40px;
+  height: 40px;
+}
+
+.block-navbar.collapsed .block-item[data-block="1"] .video-container,
+.block-navbar.collapsed button.block-item[data-block="1"] .video-container {
+  display: none;
+}
+
+.block-navbar.collapsed .block-item:first-child {
+  background-color: #E7E8E3;
+}
+
+.block-navbar.collapsed .block-item:first-child.active {
+  background-color: #535f7c;
+  color: #ffffff;
+}
+
+.block-navbar.collapsed .block-item.active {
+  background-color: #A2B6B5;
+  color: #2E3034;
+}
+
+.block-navbar.collapsed .block-item {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.block-navbar.collapsed .block-item[data-block="전체 보기"]::after {
+  content: 'All';
+  font-size: 14px;
+}
+
+
+.video-container {
+  background-color: #666;
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  position: relative;
+  /* z-index: 100; */
+}
+
+.block-item.current {
+  background-color: #A2B6B5;  /* 원하는 배경색 */
+  color: #ffffff;  /* 원하는 텍스트 색상 */
+  font-weight: bold;
+}
+
+.block-navbar.collapsed .block-item.current {
+  background-color: #A2B6B5;  /* 축소된 상태에서도 동일한 배경색 적용 */
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .block-navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .block-item {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: center;
+  }  
+
+  /* .block-navbar .block-item:nth-child(2) {
+    height: 50px;
+  } */
+
+  .video-container,
+  .control-box {
+    display: none;
+  }
+}
+
+.live-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-loading {
+  color: white;
+  font-size: 14px;
+}
+
+.loading-detail {
+  font-weight: 600;
+}
+
+/* 뷰 아이콘 스타일 */
+.view-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/* 스트림 컨테이너 스타일 */
+.stream-container {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  margin-left: 10px;
+  width: 300px;
+  background-color: #2E3034;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  overflow: hidden;
+}
+
+.stream-container.expanded {
+  display: block;
+}
+
+.stream-container .video-container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 10px;
+  display: flex !important; /* 강제로 display: flex 적용 */
+  align-items: center;
+  justify-content: center;
+  background-color: #666;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 3;
+}
+
+/* 부모 컨테이너 설정 */
+.user-panel, .block-navbar {
+  overflow: visible !important;
+  z-index: 20;
+}
+
+/* 부모 요소의 position 설정 */
+.block-item {
+  position: relative; /* stream-container의 기준점 설정 */
+}
+
+.block-navbar:not(.collapsed) .block-item.activated {
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* 로봇 상태 표시 스타일 */
+.robot-status {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: white;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  z-index: 10;
+  background-color: #2E3034;
+}
+
+
+/* 활성화된 블록의 비디오 컨테이너 스타일 */
+.block-item.activated .video-container {
+  width: 100%;
+  height: 180px;
+  /* margin-top: 5px; */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2E3034;
+  border-radius: 4px;
+}
+
+.block-item.activated .live-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 축소된 상태에서 활성화된 블록 스타일 */
+/* .block-navbar.collapsed .block-item.activated {
+  width: 40px;
+  height: 40px;
+  background-color: #4CAF50;
+} */
+
+.block-navbar.collapsed .block-item.activated .video-container {
+  display: none;
+}

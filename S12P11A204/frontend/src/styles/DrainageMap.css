@@ -1,0 +1,173 @@
+.drainage-map-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.drainage-map-container.loaded {
+  opacity: 1;
+}
+
+.map-skeleton {
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-skeleton::after {
+  content: "Loading Map...";
+  font-size: 1.2em;
+  color: #666;
+}
+
+.drain-marker {
+  width: 30px;
+  height: 30px;
+  background-color: #6bbef2af;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 0 5px #977ef2a2; /* 은은한 푸른빛 그림자 */
+}
+
+.drain-marker.inactive {
+  background-color: #e7e8e37a;
+  /* font-size: 33px; */
+  color: white;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);;
+}
+
+.drain-marker:hover {
+  background-color: #977ef2a2;
+  box-shadow: 0 0 8px #6bbef2af; /* 호버 시 약간 강한 보라빛 그림자 */
+}
+
+.drain-marker.inactive:hover {
+  background-color: #90918f88;
+  box-shadow: 0 0 5px rgba(144, 145, 143, 0.4); /* 비활성 호버 시 약한 회색 그림자 */
+}
+
+.mapboxgl-marker {
+  z-index: 5;
+}  
+
+.activate-button {
+  position: fixed;
+  top: 47%;
+  right: 4%;
+  transform: translateY(-50%);
+  width: 80px;
+  height: 80px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  z-index: 5;
+  padding: 0;
+}
+
+.activate-button:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+
+.activate-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(107, 190, 242, 0.6)); /* 은은한 푸른빛 그림자 */
+}
+
+.activate-button:hover .activate-icon {
+  filter: drop-shadow(0 0 7px #ad69f2b3); /* 호버 시 약간 강한 보랏빛 그림자 */
+}
+
+.drain-marker.home-base {
+  background-color: transparent;
+  color: #000;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  font-size: 25px;
+  cursor: default;
+  border: none;
+  box-shadow: none;
+}
+
+.drain-marker.home-base:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.home-icon {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 5px rgba(107, 190, 242, 0.6)); /* 은은한 푸른빛 그림자 */
+}
+
+.home-icon:hover {
+  filter: drop-shadow(0 0 7px #ad69f2b3); /* 호버 시 약간 강한 푸른빛 그림자 */
+}
+
+/* 로봇 아이콘 스타일 */
+.robot-marker {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.robot-marker img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.mapboxgl-canvas-container {
+  .mapboxgl-layer {
+    transition: opacity 0.5s ease-out;
+  }
+}
+
+/* 경로 스타일 */
+.route-line {
+  stroke-width :5px ;
+}
+
+/* 지나온 길 */
+.passed-route {
+  stroke-width :8px;
+  stroke-opacity :1;
+  stroke:#ff5733; /* 주황색 */
+}
+
+/* 배수구 상태 색상 */
+.drain-marker.good {
+  background-color :#2ecc7096 ; /* 초록색 */
+}
+.drain-marker.medium {
+  background-color :#f1c40f8a ; /* 노란색 */
+}
+.drain-marker.bad {
+  background-color :#e74d3c98 ; /* 빨간색 */
+}

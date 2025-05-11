@@ -1,0 +1,87 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:13
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+# 데이터베이스 모든 테이블을 초기화하는 쿼리
+# DO $$ DECLARE
+#     r RECORD;
+# BEGIN
+#     FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = current_schema()) LOOP
+#         EXECUTE 'DROP TABLE IF EXISTS ' || quote_ident(r.tablename) || ' CASCADE';
+#     END LOOP;
+# END $$;
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
+
+    command: 
+      - sh
+      - -c
+      - |
+        while ! pg_isready -h db -U postgres; do sleep 1; done
+        python manage.py makemigrations
+        python manage.py migrate
+        python manage.py update_initial_weather
+        python manage.py loaddata initial_data
+        python manage.py generate_dummy_data
+        daphne -b 0.0.0.0 -p 8000 OKDK.asgi:application
+        
+    networks:
+      - app_network
+      
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://i12a204.p.ssafy.io:8000/health/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    environment:
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    stdin_open: true
+    networks:
+      - app_network
+
+volumes:
+  postgres_data:
+
+networks:
+  app_network:
+    driver: bridge
