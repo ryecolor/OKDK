@@ -54,7 +54,7 @@ OKDK 프로젝트는 다음과 같은 목표를 가집니다:
 - **배포**: AWS EC2, Docker
 
   
-<br><img src="./img/architecture.png" width="600"/>  
+<br><img src="./S12P11A204/img/architecture.png" width="600"/>  
 <br>
 
 
